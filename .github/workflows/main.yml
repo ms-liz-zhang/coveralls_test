@@ -15,11 +15,8 @@ jobs:
         ruby-version: 2.6.x
 
     - name: Run rspec
-      run:
-        gem install bundler
-        bundle install
-        bundle exec rspec spec
-        
+      run: rspec
+
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
