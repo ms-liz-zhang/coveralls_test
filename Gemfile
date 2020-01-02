@@ -68,3 +68,5 @@ gem "rspec-rails", "~> 3.9"
 gem "simplecov", "~> 0.17.1"
 
 gem "coveralls", "~> 0.7.1"
+
+gem "simplecov-lcov", "~> 0.7.0"

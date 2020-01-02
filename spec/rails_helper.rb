@@ -1,5 +1,9 @@
-require 'coveralls'
-Coveralls.wear!('rails')
+require 'simplecov'
+require 'simplecov-lcov'
+SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
+SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
+SimpleCov.start
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
