@@ -1,0 +1,27 @@
+name: Ruby
+
+on: ["pull_request"]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+
+    - name: Run rspec
+      run:
+        gem install bundler
+        bundle install
+        bundle exec rspec spec
+        
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        path-to-lcov: ./coverage/lcov/code_coverage_test.lcov
+        github-token: ${{ secrets.GITHUB_TOKEN }}
