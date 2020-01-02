@@ -1,6 +1,6 @@
 name: Ruby
 
-on: ["pull_request"]
+on: ["push", "pull_request"]
 
 jobs:
   build:
@@ -14,12 +14,12 @@ jobs:
       with:
         ruby-version: 2.6.x
 
+    - name: Setup SQL lite 3
+      run: sudo apt-get install -y libsqlite3-dev
+
     - name: Run rspec
-      run:
-        gem install bundler
-        bundle install
-        bundle exec rspec spec
-        
+      run: gem install bundler; bundle install; rspec
+
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
