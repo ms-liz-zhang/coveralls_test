@@ -10,4 +10,8 @@ class SomeModel < ApplicationRecord
   def another_uncovered_method
     return false
   end
+
+  def more_uncovered_methods
+    return false
+  end
 end
