@@ -64,3 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "rspec", "~> 3.9"
 
 gem "rspec-rails", "~> 3.9"
+
+gem "simplecov", "~> 0.17.1"
+
+gem "coveralls", "~> 0.7.1"
