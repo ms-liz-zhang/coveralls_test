@@ -1,6 +1,10 @@
 require 'simplecov'
 require 'simplecov-lcov'
-SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
+SimpleCov::Formatter::LcovFormatter.config do |c|
+  c.report_with_single_file = true
+  c.lcov_file_name = 'code_coverage_test.lcov' # default: "YOUR_PROJECT_NAME.lcov"
+end
+
 SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
 SimpleCov.start
 
