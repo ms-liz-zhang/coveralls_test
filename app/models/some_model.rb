@@ -14,4 +14,8 @@ class SomeModel < ApplicationRecord
   def more_uncovered_methods
     return false
   end
+
+  def this_should_reduce_coverage
+    return false
+  end
 end
