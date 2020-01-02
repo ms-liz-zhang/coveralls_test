@@ -5,7 +5,7 @@ RSpec.describe SomeModel, type: :model do
     subject { SomeModel.new }
 
     it "covers method" do
-      expect(subject.some_method).to be_true
+      expect(subject.some_method).to be true
     end
   end
 end
