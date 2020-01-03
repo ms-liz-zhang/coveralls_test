@@ -1,14 +1,15 @@
 name: Setup tests
 
-steps:
-  - uses: actions/checkout@v1
-  - name: Set up Ruby 2.6
-    uses: actions/setup-ruby@v1
-    with:
-      ruby-version: 2.6.x
+runs:
+  steps:
+    - uses: actions/checkout@v1
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
 
-  - name: Setup SQL lite 3
-    run: sudo apt-get install -y libsqlite3-dev
+    - name: Setup SQL lite 3
+      run: sudo apt-get install -y libsqlite3-dev
 
-  - name: Run rspec
-    run: gem install bundler; bundle install; rspec
+    - name: Run rspec
+      run: gem install bundler; bundle install; rspec
