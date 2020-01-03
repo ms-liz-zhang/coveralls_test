@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Setup
-    - uses: ./.github/actions/setup
+      uses: ./.github/actions/setup
 
     - name: Coveralls
       uses: coverallsapp/github-action@master
