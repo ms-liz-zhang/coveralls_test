@@ -8,12 +8,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Setup
-      uses: ./.github/actions/setup
+      - name: Set up Ruby 2.6
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6.x
 
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        path-to-lcov: ./coverage/lcov/code_coverage_test.lcov
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup SQL lite 3
+        run: sudo apt-get install -y libsqlite3-dev
+
+      - name: Run rspec
+        run: gem install bundler; bundle install; rspec
+
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          path-to-lcov: ./coverage/lcov/code_coverage_test.lcov
+          github-token: ${{ secrets.GITHUB_TOKEN }}
