@@ -8,20 +8,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up Ruby 2.6
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 2.6.x
+    - uses: actions/checkout@v1
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
 
-      - name: Setup SQL lite 3
-        run: sudo apt-get install -y libsqlite3-dev
+    - name: Setup SQL lite 3
+      run: sudo apt-get install -y libsqlite3-dev
 
-      - name: Run rspec
-        run: gem install bundler; bundle install; rspec
+    - name: Run rspec
+      run: gem install bundler; bundle install; rspec
 
-
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          path-to-lcov: ./coverage/lcov/code_coverage_test.lcov
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        path-to-lcov: ./coverage/lcov/code_coverage_test.lcov
+        github-token: ${{ secrets.GITHUB_TOKEN }}
